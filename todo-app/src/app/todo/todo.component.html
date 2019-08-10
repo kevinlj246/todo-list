@@ -1,0 +1,16 @@
+<div class="jumbotron" style="padding: 45px 0px">
+    <h2 class="text-center">To Do List</h2>
+</div>
+
+<div class="input-group">
+    <input type="text" class="form-control" #itemTitle>
+    <div class="input-group-addon hover-cursor">
+        <i class="fa fa-plus-square fa-2x"></i>
+    </div>
+</div>
+
+<ul style="padding: 20px 20px">
+    <li *ngFor="let itemcomponent of toDoList">
+        {{ itemcomponent.name }}
+    </li>
+</ul>
