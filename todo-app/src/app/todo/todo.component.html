@@ -3,14 +3,14 @@
 </div>
 
 <div class="input-group">
-    <input type="text" class="form-control" #itemTitle>
-    <div class="input-group-addon hover-cursor">
+    <input type="text" class="form-control" [value]="newItem" (input)="newItemChanged($event)">
+    <div class="input-group-addon hover-cursor" (click)="addItem(newItem)">
         <i class="fa fa-plus-square fa-2x"></i>
     </div>
 </div>
 
 <ul style="padding: 20px 20px">
-    <li *ngFor="let itemcomponent of toDoList">
-        {{ itemcomponent.name }}
+    <li *ngFor="let item of toDoList">
+        {{ item.name }}
     </li>
 </ul>

@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ItemComponent implements OnInit {
 
   constructor(
-    public id: number,
-    public name: string) { }
+    public name: string,
+    public isToggled: boolean) { }
 
   ngOnInit() {
   }
