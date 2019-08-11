@@ -1,10 +1,13 @@
 # Setup
-Run `npm start` or `ng serve` inside of the todo-app directory to start a dev server. Then navigate to `http://localhost:4200/`.
+1. Open a terminal and run `git clone https://github.com/kevinlj246/todo-list.git` where you'd like to clone the project.
+2. Navigate to the todo-app directory.
+3. Run `npm start` or `ng serve` inside of the todo-app directory to start a dev server.
+4. Then navigate to `http://localhost:4200/`the view the app.
 
 
 # Task at Hand
-* Front end candidate task:Write a Todo List app, front end only using Angular 7 or greater (data does not need to persist).Minimum requirements
-* Users should be able to:
+Front end candidate task:Write a Todo List app, front end only using Angular 7 or greater (data does not need to persist).Minimum requirements
+Users should be able to:
 - [x] View the list of items,
 - [x] Add, edit, remove, and mark items as done,
 
@@ -36,7 +39,7 @@ Bonus points (totally optional):
 
 * To my understanding mobile friendly usage can be achieved by adding the following line to index.html.
   `<meta name="viewport" content="width=device-width, initial-scale=1">`
-    * However, my hover and select method might not work well on mobile. The edit method could be refactored to include an edit button with an in-line editing capability.
+    * However, I was not able to test this on mobile. In addition, my hover and select method might not work well on mobile. The edit method could be refactored to include an edit button with an in-line editing capability.
 
 * Had issue updating the last modified date when the name changes, but the radio buttons update the last modified date.
 
