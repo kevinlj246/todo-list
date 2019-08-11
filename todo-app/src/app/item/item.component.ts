@@ -10,7 +10,8 @@ export class ItemComponent implements OnInit {
   constructor(
     public name: string,
     public isToggled: boolean,
-    public createdDate: number) { }
+    public createdDate: number,
+    public lastModified: number) { }
 
   ngOnInit() {
   }

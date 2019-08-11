@@ -9,9 +9,9 @@ import { ItemComponent } from '../item/item.component';
 export class TodoComponent implements OnInit {
   today: number = Date.now();
   toDoList = [
-    new ItemComponent('Take out the trash', false, this.today),
-    new ItemComponent('Wash the dishes', false, this.today),
-    new ItemComponent('Do laundry', false, this.today)
+    new ItemComponent('Take out the trash', false, this.today, this.today),
+    new ItemComponent('Wash the dishes', false, this.today, this.today),
+    new ItemComponent('Do laundry', false, this.today, this.today)
   ];
   newItem = '';
   selectedItem: ItemComponent;
@@ -23,8 +23,9 @@ export class TodoComponent implements OnInit {
 
   addItem(name: string){
     let addedDate = Date.now();
+    let lastModified = Date.now();
     if(name){
-      let item = new ItemComponent(name, false, addedDate);
+      let item = new ItemComponent(name, false, addedDate, lastModified);
       this.toDoList.push(item);
     }
   }
@@ -36,6 +37,7 @@ export class TodoComponent implements OnInit {
 
   alterToggle(ItemComponent, isToggled){
     ItemComponent.isToggled = !isToggled;
+    ItemComponent.lastModified = Date.now();
   }
 
   deleteItem(item){
@@ -54,4 +56,10 @@ export class TodoComponent implements OnInit {
     this.selectedItem = null;
   }
 
+
+  sortAlphabetically(){
+    this.toDoList = this.toDoList.sort(function(a,b){
+      return (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 0)
+      });  
+  }
 }

@@ -1,10 +1,10 @@
 <div class="jumbotron" style="padding: 45px 0px">
     <h2 class="text-center">To Do List</h2>
 </div>
-
+<button style="margin:10px 0px" (click)="sortAlphabetically()">Sort ABC</button>
 <div class="input-group">
     <input name="name" type="text" class="form-control" [value]="newItem" (input)="newItemChanged($event)"
-    required minlength="4" [(ngModel)]="newItem" #name="ngModel" >
+    required minlength="4" [(ngModel)]="newItem" #name="ngModel" />
     <div class="input-group-addon hover-cursor" (click)="addItem(newItem); name.reset()">
         <i class="fa fa-plus-square fa-2x" style="margin:5px 5px"></i>
     </div>
@@ -19,8 +19,9 @@
             <span class="hover-cursor" [class.text-success]="item.isToggled" (click)="alterToggle(item,item.isToggled)">
                 <i class="fa fa-lg" [ngClass]="item.isToggled?'fa-check-circle-o':'fa-circle-thin'"></i>
             </span>
-            {{item.name}}
-            <div style="margin-left: 22px">Created: {{item.createdDate | date:'short'}}
+            <h5 style="display: inline; margin-left: 5px">{{item.name}}</h5>
+            <div style="margin-left: 22px">Created: {{item.createdDate | date:'short'}}</div>
+            <div style="margin-left: 22px">Last Modified: {{item.lastModified | date:'medium'}}
                 <span class="hover-cursor text-danger pull-right" (click)="deleteItem(item)">
                     <i class="fa fa-trash-o fa-lg"></i>
                 </span>
@@ -33,6 +34,7 @@
             <ng-template #done><div><span>Status: </span><span class="text-success">Complete</span></div></ng-template>
             <ng-template #notDone><div><span>Status: </span><span class="text-danger">Incomplete</span></div></ng-template>
             <div>Created: {{selectedItem.createdDate | date:'short'}}</div>
+            <div>Created: {{selectedItem.lastModified | date:'medium'}}</div>
             <div>
                 <label>Edit:
                 <input [(ngModel)]="selectedItem.name" placeholder="name"/>
