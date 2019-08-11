@@ -8,3 +8,7 @@
   .list-group-item.selected:hover {
     background-color: #BBD8DC;
   }
+
+  .fa-plus-square {
+      color: #6E6E6E
+  }
