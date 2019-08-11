@@ -3,10 +3,14 @@
 </div>
 
 <div class="input-group">
-    <input type="text" class="form-control" [value]="newItem" (input)="newItemChanged($event)">
-    <div class="input-group-addon hover-cursor" (click)="addItem(newItem)">
+    <input name="name" type="text" class="form-control" [value]="newItem" (input)="newItemChanged($event)"
+    required minlength="4" [(ngModel)]="newItem" #name="ngModel" >
+    <div class="input-group-addon hover-cursor" (click)="addItem(newItem); name.reset()">
         <i class="fa fa-plus-square fa-2x" style="margin:5px 5px"></i>
     </div>
+</div>
+<div *ngIf="name?.errors.required && (name.dirty || name.touched) && !newItem" class="alert alert-danger" >
+    Item name is required. 
 </div>
 
 <div style="margin:5px 0px">
@@ -23,7 +27,9 @@
     </ul>
     <div style="margin:10px 0px" *ngIf="selectedItem">
         <h4>Item: {{selectedItem.name}}</h4>
-            <div><span>Done: </span>{{selectedItem.isToggled}}</div>
+            <ng-template *ngIf="selectedItem.isToggled; then done; else notDone"></ng-template>
+            <ng-template #done><p><span>Status: </span><span class="text-success">Complete</span></p></ng-template>
+            <ng-template #notDone><p><span>Status: </span><span class="text-danger">Incomplete</span></p></ng-template>
             <div>
                 <label>Edit:
                 <input [(ngModel)]="selectedItem.name" placeholder="name"/>

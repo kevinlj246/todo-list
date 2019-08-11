@@ -21,8 +21,10 @@ export class TodoComponent implements OnInit {
   }
 
   addItem(name: string){
-    let item = new ItemComponent(name, false);
-    this.toDoList.push(item);
+    if(name){
+      let item = new ItemComponent(name, false);
+      this.toDoList.push(item);
+    }
   }
 
   newItemChanged(event: KeyboardEvent): void {
