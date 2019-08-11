@@ -9,8 +9,16 @@
     </div>
 </div>
 
-<ul style="padding: 20px 20px">
-    <li *ngFor="let item of toDoList">
-        {{ item.name }}
-    </li>
-</ul>
+<div style="margin:5px 0px">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of toDoList">
+            <span class="hover-cursor" [class.text-success]="item.isToggled" (click)="alterToggle(item,item.isToggled)">
+                <i class="fa fa-lg" [ngClass]="item.isToggled?'fa-check-circle-o':'fa-circle-thin'"></i>
+            </span>
+            {{item.name}}
+            <span class="hover-cursor text-danger pull-right" (click)="deleteItem(item)">
+                <i class="fa fa-trash-o fa-lg"></i>
+            </span>
+        </li>
+    </ul>
+</div>

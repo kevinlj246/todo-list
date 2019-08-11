@@ -19,7 +19,7 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
   }
 
-  public addItem(name: string){
+  addItem(name: string){
     let item = new ItemComponent(name, false);
     this.toDoList.push(item);
   }
@@ -27,6 +27,15 @@ export class TodoComponent implements OnInit {
   newItemChanged(event: KeyboardEvent): void {
     const target = <HTMLInputElement> event.target;
     this.newItem = target.value;
+  }
+
+  alterToggle(ItemComponent, isToggled){
+    ItemComponent.isToggled = !isToggled;
+  }
+
+  deleteItem(item){
+    const index: number = this.toDoList.indexOf(item);
+    this.toDoList.splice(index, 1);
   }
 
 }
