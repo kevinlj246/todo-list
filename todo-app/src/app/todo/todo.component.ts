@@ -7,10 +7,11 @@ import { ItemComponent } from '../item/item.component';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
+  today: number = Date.now();
   toDoList = [
-    new ItemComponent('Take out the trash', false),
-    new ItemComponent('Wash the dishes', false),
-    new ItemComponent('Do laundry', false)
+    new ItemComponent('Take out the trash', false, this.today),
+    new ItemComponent('Wash the dishes', false, this.today),
+    new ItemComponent('Do laundry', false, this.today)
   ];
   newItem = '';
   selectedItem: ItemComponent;
@@ -21,8 +22,9 @@ export class TodoComponent implements OnInit {
   }
 
   addItem(name: string){
+    let addedDate = Date.now();
     if(name){
-      let item = new ItemComponent(name, false);
+      let item = new ItemComponent(name, false, addedDate);
       this.toDoList.push(item);
     }
   }

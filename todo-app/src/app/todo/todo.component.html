@@ -20,16 +20,19 @@
                 <i class="fa fa-lg" [ngClass]="item.isToggled?'fa-check-circle-o':'fa-circle-thin'"></i>
             </span>
             {{item.name}}
-            <span class="hover-cursor text-danger pull-right" (click)="deleteItem(item)">
-                <i class="fa fa-trash-o fa-lg"></i>
-            </span>
+            <div style="margin-left: 22px">Created: {{item.createdDate | date:'short'}}
+                <span class="hover-cursor text-danger pull-right" (click)="deleteItem(item)">
+                    <i class="fa fa-trash-o fa-lg"></i>
+                </span>
+            </div>
         </li>
     </ul>
-    <div style="margin:10px 0px" *ngIf="selectedItem">
+    <div style="margin:5px 0px" *ngIf="selectedItem">
         <h4>Item: {{selectedItem.name}}</h4>
             <ng-template *ngIf="selectedItem.isToggled; then done; else notDone"></ng-template>
-            <ng-template #done><p><span>Status: </span><span class="text-success">Complete</span></p></ng-template>
-            <ng-template #notDone><p><span>Status: </span><span class="text-danger">Incomplete</span></p></ng-template>
+            <ng-template #done><div><span>Status: </span><span class="text-success">Complete</span></div></ng-template>
+            <ng-template #notDone><div><span>Status: </span><span class="text-danger">Incomplete</span></div></ng-template>
+            <div>Created: {{selectedItem.createdDate | date:'short'}}</div>
             <div>
                 <label>Edit:
                 <input [(ngModel)]="selectedItem.name" placeholder="name"/>
