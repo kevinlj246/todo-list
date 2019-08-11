@@ -8,10 +8,34 @@
   .list-group-item.selected:hover {
     background-color: #BBD8DC;
   }
+  .list-group{
+    margin:5px 0px;
+  }
 
   .fa-plus-square {
-      color: #6E6E6E
+      color: #6E6E6E;
   }
-  .div {
+  .selected-item {
     margin:5px 0px;
+  }
+
+  .button{
+    margin:10px 5px;
+  }
+
+  .item-name {
+    display: inline;
+    margin-left: 5px;
+  }
+
+  .date {
+    margin-left: 22px;
+  }
+
+  .jumbotron {
+    padding: 45px 0px;
+  }
+
+  .fa-plus-square {
+    margin:5px 5px;
   }

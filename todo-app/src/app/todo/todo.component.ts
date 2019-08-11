@@ -62,4 +62,16 @@ export class TodoComponent implements OnInit {
       return (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 0)
       });  
   }
+
+  sortDateCreated(){
+    this.toDoList = this.toDoList.sort(function(a,b){
+      return (a.createdDate > b.createdDate ? 1 : a.createdDate < b.createdDate ? -1 : 0)
+      });  
+  }
+
+  sortLastModified(){
+    this.toDoList = this.toDoList.sort(function(a,b){
+      return (a.lastModified > b.lastModified ? 1 : a.lastModified < b.lastModified ? -1 : 0)
+      });
+  }
 }
