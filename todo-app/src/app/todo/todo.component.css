@@ -1,0 +1,10 @@
+.list-group li:hover {
+    background-color: #DDD;
+    cursor: pointer;
+  }
+  .list-group-item.selected {
+    background-color: #CFD8DC;
+  }
+  .list-group-item.selected:hover {
+    background-color: #BBD8DC;
+  }

@@ -13,6 +13,7 @@ export class TodoComponent implements OnInit {
     new ItemComponent('Do laundry', false)
   ];
   newItem = '';
+  selectedItem: ItemComponent;
 
   constructor() { }
 
@@ -36,6 +37,17 @@ export class TodoComponent implements OnInit {
   deleteItem(item){
     const index: number = this.toDoList.indexOf(item);
     this.toDoList.splice(index, 1);
+    if(item === this.selectedItem){
+      this.deselect();
+    }
+  }
+
+  onSelect(item: ItemComponent): void {
+    this.selectedItem = item;
+  }
+
+  deselect(): void {
+    this.selectedItem = null;
   }
 
 }

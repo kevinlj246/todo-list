@@ -11,7 +11,7 @@
 
 <div style="margin:5px 0px">
     <ul class="list-group">
-        <li class="list-group-item" *ngFor="let item of toDoList">
+        <li class="list-group-item" *ngFor="let item of toDoList" [class.selected]="item === selectedItem"(click)="onSelect(item)">
             <span class="hover-cursor" [class.text-success]="item.isToggled" (click)="alterToggle(item,item.isToggled)">
                 <i class="fa fa-lg" [ngClass]="item.isToggled?'fa-check-circle-o':'fa-circle-thin'"></i>
             </span>
@@ -21,4 +21,13 @@
             </span>
         </li>
     </ul>
+    <div style="margin:10px 0px" *ngIf="selectedItem">
+        <h4>Item: {{selectedItem.name}}</h4>
+            <div><span>Done: </span>{{selectedItem.isToggled}}</div>
+            <div>
+                <label>Edit:
+                <input [(ngModel)]="selectedItem.name" placeholder="name"/>
+                </label>
+            </div>
+    </div>
 </div>
